@@ -1,4 +1,5 @@
 var sirup = function (expression) {
+
   this.get = function () {
     if (typeof expression === 'string') {
       return document.querySelectorAll(expression);
@@ -6,6 +7,7 @@ var sirup = function (expression) {
       return this;
     }
   };
+
   this.ready = function (func) {
     if(document.readyState === 'complete'){
       func();
@@ -24,7 +26,7 @@ var sirup = function (expression) {
     }
     return this;
   };
-  
+
   this.addClass = function(className) {
     var nodes = this.get();
     if(!!document.body.classList){
@@ -40,7 +42,7 @@ var sirup = function (expression) {
     }    
     return this;
   };
-  
+
   this.removeClass = function(className) {
     var nodes = this.get();
     if(!!document.body.classList){
@@ -54,7 +56,7 @@ var sirup = function (expression) {
     }    
     return this;
   };
-  
+
   this.hasClass = function (className) {
     if(!!document.body.classList){
         return this.get()[0].classList.contains(className);
@@ -62,7 +64,7 @@ var sirup = function (expression) {
         return this.get()[0].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'));
     }
   };
-  
+
   this.toggleClass = function (className) {
     var nodes = this.get();
     if(!!document.body.classList){
