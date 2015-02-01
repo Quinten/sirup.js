@@ -45,9 +45,9 @@ var sirup = function (expression) {
   
   this.hasClass = function (className) {
     if(!!document.body.classList){
-        return this.get[0].classList.contains(className);
+        return this.get()[0].classList.contains(className);
     }else{
-        return this.get[0].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'));
+        return this.get()[0].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'));
     }
   };
   
