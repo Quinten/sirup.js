@@ -7,14 +7,14 @@
 		<!--<link rel="stylesheet" href="css/styles.css">-->
 		<script src="sirup.js"></script>
 		<script>
-			sirup().ready(function(){
+			sirup(document).ready(function(){
       				//console.log(sirup('.myClass').nodes);
       				var foo = sirup('.foo');
       				console.log(foo.get());
       				var bar = sirup('.bar');
       				console.log(bar.get());
       				console.log(foo.get());
-      				console.log(foo.hasClass('foo'));
+      				console.log(foo.hasClass('bar'));
 			});
 		</script>
 	</head>
