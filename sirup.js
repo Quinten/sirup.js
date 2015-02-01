@@ -64,6 +64,24 @@ var sirup = function (expression) {
   };
   
   this.toggleClass = function () {
+    var nodes = this.get();
+    if(!!document.body.classList){
+      for (var n = 0; n < nodes.length; n++) {
+        if (!nodes[n].classList.contains(className)) {
+          nodes[n].classList.add(className);
+        } else {
+          nodes[n].classList.remove(className);
+        }
+      }
+    } else {
+      for (var n = 0; n < nodes.length; n++) {
+        if (!nodes[n].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'))) {
+          nodes[n].className += ' ' + className;
+        } else {
+          nodes[n].className = nodes[n].className.replace(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'), '');
+        }
+      }
+    }    
     return this;
   };
 
