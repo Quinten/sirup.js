@@ -1,11 +1,12 @@
 var sirup = function (expression) {
-  var sirupObject = window.sirup;
-  if (expression) {
-    sirupObject.nodes = document.querySelectorAll(expression);
-  } else {
-    sirupObject.nodes = null;
+  var nodes = null;
+  if (expression != undefined) {
+    nodes = document.querySelectorAll(expression);
   }
-  sirupObject.ready = function (func) {
+  this.get = function () {
+    return nodes;
+  };
+  this.ready = function (func) {
     if(document.readyState === 'complete'){
       func();
     } else {
@@ -21,6 +22,22 @@ var sirup = function (expression) {
         }
       }
     }
+    return this;
   };
-  return sirupObject;
+  
+  this.add = function() {
+    alert('add');
+    return this;
+  }
+
+  this.del = function() {
+    alert('delete');
+    return this;
+  }
+
+  if (this instanceof sirup) {
+    return this.sirup;
+  } else {
+    return new sirup();
+  }
 };
