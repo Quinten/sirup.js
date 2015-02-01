@@ -24,22 +24,34 @@ var sirup = function (expression) {
     }
     return this;
   };
-
-  //var class_list = !!document.body.classList;
-  //var s = '(\\s|^)'; // space or start
-  //var e = '(\\s|$)'; // space or end
-
-  function getRegex(className){
-    return new RegExp(s + className + e, 'g');
-  }
   
-  this.addClass = function() {
-    
+  this.addClass = function(className) {
+    var nodes = this.get();
+    if(!!document.body.classList){
+      for (var n = 0; n < nodes.length; n++) {
+        nodes[n].classList.add(className);
+      }
+    } else {
+      for (var n = 0; n < nodes.length; n++) {
+        if (!nodes[n].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'))) {
+          nodes[n].className += ' ' + className;
+        }
+      }
+    }    
     return this;
   };
-
-  this.removeClass = function() {
-    
+  
+  this.removeClass = function(className) {
+    var nodes = this.get();
+    if(!!document.body.classList){
+      for (var n = 0; n < nodes.length; n++) {
+        nodes[n].classList.remove(className);
+      }
+    } else {
+      for (var n = 0; n < nodes.length; n++) {
+        nodes[n].className = nodes[n].className.replace(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'), '');
+      }
+    }    
     return this;
   };
   
