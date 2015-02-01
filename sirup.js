@@ -1,6 +1,6 @@
 var sirup = function (expression) {
   this.get = function () {
-    if (expression != undefined) {
+    if (typeof expression === 'string') {
       return document.querySelectorAll(expression);
     } else {
       return this;
