@@ -1,5 +1,5 @@
 var sirup = function (expression) {
-  var sirupObject = new sirup();
+  var sirupObject = window.sirup;
   if (expression) {
     sirupObject.nodes = document.querySelectorAll(expression);
   } else {
