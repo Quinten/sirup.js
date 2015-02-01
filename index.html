@@ -7,7 +7,9 @@
 		<!--<link rel="stylesheet" href="css/styles.css">-->
 		<script src="sirup.js"></script>
 		<script>
-      			console.log(sirup('.myClass').nodes);
+			sirup().ready(function(){
+      				console.log(sirup('.myClass').nodes);
+			});
 		</script>
 	</head>
 	<body>
