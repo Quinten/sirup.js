@@ -38,6 +38,6 @@ var sirup = function (expression) {
   if (this instanceof sirup) {
     return this.sirup;
   } else {
-    return new sirup();
+    return new sirup(expression);
   }
 };
