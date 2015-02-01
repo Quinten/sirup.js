@@ -25,9 +25,9 @@ var sirup = function (expression) {
     return this;
   };
 
-  var class_list = !!document.body.classList;
-  var s = '(\\s|^)'; // space or start
-  var e = '(\\s|$)'; // space or end
+  //var class_list = !!document.body.classList;
+  //var s = '(\\s|^)'; // space or start
+  //var e = '(\\s|$)'; // space or end
 
   function getRegex(className){
     return new RegExp(s + className + e, 'g');
