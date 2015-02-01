@@ -1,10 +1,10 @@
 var sirup = function (expression) {
-  var nodes = null;
-  if (expression != undefined) {
-    nodes = document.querySelectorAll(expression);
-  }
   this.get = function () {
-    return nodes;
+    if (expression != undefined) {
+      return document.querySelectorAll(expression);
+    } else {
+      return this;
+    }
   };
   this.ready = function (func) {
     if(document.readyState === 'complete'){
