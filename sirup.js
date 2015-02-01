@@ -63,7 +63,7 @@ var sirup = function (expression) {
     }
   };
   
-  this.toggleClass = function () {
+  this.toggleClass = function (className) {
     var nodes = this.get();
     if(!!document.body.classList){
       for (var n = 0; n < nodes.length; n++) {
