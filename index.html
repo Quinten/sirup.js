@@ -8,11 +8,17 @@
 		<script src="sirup.js"></script>
 		<script>
 			sirup().ready(function(){
-      				console.log(sirup('.myClass').nodes);
+      				//console.log(sirup('.myClass').nodes);
+      				var foo = sirup('.foo');
+      				console.log(foo.nodes);
+      				var bar = sirup('.bar');
+      				console.log(bar.nodes);
+      				console.log(bar.nodes);
 			});
 		</script>
 	</head>
 	<body>
-	  <div class="myClass">test</div>
+	  <div class="foo">foo</div>
+	  <div class="bar">bar</div>
 	</body>
 </html>
