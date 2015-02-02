@@ -17,6 +17,7 @@ var sirup = function (expression) {
       nodes[n].tempFunc(n);
       delete nodes[n].tempFunc;
     }
+    return this;
   };
 
   this.ready = function (func) {
