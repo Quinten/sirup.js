@@ -4,10 +4,8 @@ var sirup = function (expression) {
     if (typeof expression === 'string') {
       return document.querySelectorAll(expression);
     } else if (expression instanceof Node){
-      var nodes = [];
-      nodes[0] = expression;
-      return nodes;
-    }else {
+      return [expression];
+    } else {
       return this;
     }
   };
