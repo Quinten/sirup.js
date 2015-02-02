@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>sirupjs demo</title>
+		<title>sirupjs test</title>
 		<!--<link rel="stylesheet" href="css/styles.css">-->
 		<script src="sirup.js"></script>
 		<script>
@@ -21,6 +21,10 @@
       					console.log(this instanceof Node);
       					console.log(sirup(this).get());
       				});
+      				sirup('#link').click(function (e) {
+      					console.log('clicked');
+      					console.log(e);
+      				});
 			});
 		</script>
 	</head>
@@ -28,5 +32,6 @@
 	  <div class="foo">foo</div>
 	  <div class="bar">bar</div>
 	  <div class="bar">bar 2</div>
+	  <p><a href="javascript:void(0)" id="link">link</a></p>
 	</body>
 </html>
