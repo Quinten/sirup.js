@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>sirupjs demo fader</title>
+		<!--<link rel="stylesheet" href="css/styles.css">-->
+		<script src="sirup.js"></script>
+		<script>
+			sirup(document).ready(function(){
+      				var foo = sirup('.foo');
+      				console.log(foo.get());
+      				var bar = sirup('.bar');
+      				console.log(bar.get());
+      				console.log(foo.get());
+      				console.log(foo.hasClass('bar'));
+      				sirup('.bar').each(function (index) {
+      					console.log(this);
+      					console.log(index);
+      					console.log(this instanceof Node);
+      					console.log(sirup(this).get());
+      				});
+      				sirup('#link').click(function (e) {
+      					console.log('clicked');
+      					console.log(e);
+      					sirup(this).toggleClass('peanut').toggleClass('butter');
+      				});
+			});
+		</script>
+	</head>
+	<body>
+	  <div class="foo">foo</div>
+	  <div class="bar">bar</div>
+	  <div class="bar">bar 2</div>
+	  <p><a href="javascript:void(0)" id="link">link</a></p>
+	</body>
+</html>
