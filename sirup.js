@@ -97,6 +97,14 @@ var sirup = function (expression) {
     }    
     return this;
   };
+  
+  this.click = function (func) {
+    var nodes = this.get();
+    for (var n = 0; n < nodes.length; n++) {
+      nodes[n].addEventListener('click', func);
+    }
+    return this;
+  };
 
   if (this instanceof sirup) {
     return this.sirup;
