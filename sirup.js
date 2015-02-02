@@ -3,7 +3,11 @@ var sirup = function (expression) {
   this.get = function () {
     if (typeof expression === 'string') {
       return document.querySelectorAll(expression);
-    } else {
+    } else if (expression instanceof Node){
+      var nodes = new NodeList();
+      nodes[0] = expression;
+      return nodes;
+    }else {
       return this;
     }
   };
