@@ -7,6 +7,15 @@ var sirup = function (expression) {
       return this;
     }
   };
+  
+  this.each = function (func) {
+    var nodes = this.get();
+    for (var n = 0; n < nodes.length; n++) {
+      nodes[n].tempFunc = func;
+      nodes[n].tempFunc(n);
+      delete nodes[n].tempFunc;
+    }
+  };
 
   this.ready = function (func) {
     if(document.readyState === 'complete'){
