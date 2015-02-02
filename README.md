@@ -2,7 +2,7 @@
 
 sirup.js is a small library that only implements those features of jQuery you need to build simple css transition slideshows.
 
-The idea is inspired by the article [Getting over jQuery](http://ponyfoo.com/articles/getting-over-jquery) by [Nicolas Bevacqua](https://github.com/bevacqua)
+
 
 ## the set of features are
 
@@ -11,6 +11,7 @@ get : get the set or nodeList of matched elements
 ```javascript
 sirup('.myClass').get()[0]; // first element with the class '.myClass' in the dom
 ```
+Note: You can pass an element or a css selector to the sirup function.
 
 each : loop over elements
 
@@ -50,8 +51,24 @@ sirup('.peanut').hasClass('peanut'); // returns true
 
 toggleClass : toggles a class
 
+```javascript
+sirup('.peanut').toggleClass('butter');
+```
+
 click : bind a simple click
 
-You can pass an element or a css selector to the sirup function.
+```javascript
+sirup('.peanut').click(function (e) {
+  console.log(e); // event object
+  console.log(this); // element that fired the event
+});
+```
 
-Most sirup functions can be chained.
+All sirup functions can be chained, except for get and hasClass.
+```javascript
+sirup('.peanut').addClass('butter').removeClass('peanut');
+```
+
+### Inspiration
+
+The idea for this mini framework is inspired by the article [Getting over jQuery](http://ponyfoo.com/articles/getting-over-jquery) by [Nicolas Bevacqua](https://github.com/bevacqua)
