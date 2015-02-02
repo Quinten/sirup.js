@@ -8,6 +8,10 @@ The idea is inspired by the article [Getting over jQuery](http://ponyfoo.com/art
 
 get : get the set or nodeList of matched elements
 
+```javascript
+sirup('.myClass').get()[0]; // first element with the class '.myClass' in the dom
+```
+
 each : loop over elements
 
 ready : check if the dom is ready
