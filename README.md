@@ -1,12 +1,14 @@
 # sirupjs
 
-A small library that only implements those features of jQuery you need to build simple css transition slide shows.
+A small library that only implements those features of jQuery you need to build simple css transition slideshows.
 
 The idea is inspired by the article [Getting over jQuery](http://ponyfoo.com/articles/getting-over-jquery) by [Nicolas Bevacqua](https://github.com/bevacqua)
 
-## Already implemented
+## the set of features are
 
-get : get the set of matched elements
+get : get the set or nodeList of matched elements
+
+each : loop over elements
 
 ready : check if the dom is ready
 
@@ -18,14 +20,8 @@ hasClass : checks to see if the first element has a class
 
 toggleClass : toggles a class
 
-## Todo
-
 click : we are gonna want some interaction
 
-each : loop over elements
+You can pass an element or a css selector to the sirup function.
 
-index : get the index of the element in the parent
-
-wrap an element in a sirup object
-
-...
+Most sirup functions can be chained.
