@@ -1,67 +1,113 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
 
-<title>sirup.js</title>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Sirup.js : Just enough javascript sweetness to build css transition slideshows.">
 
-<style type="text/css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-/* structure */
+    <title>Sirup.js</title>
+  </head>
 
-body {
-  margin: 0;
-  background-color: #ddd;
-}
+  <body>
 
-#wrapper {
-  width: 640px;
-  margin: 0 auto;
-}
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Quinten/sirup.js">View on GitHub</a>
 
-</style>
+          <h1 id="project_title">Sirup.js</h1>
+          <h2 id="project_tagline">Just enough javascript sweetness to build css transition slideshows.</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Quinten/sirup.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Quinten/sirup.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-</head>
-<body>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="sirupjs" class="anchor" href="#sirupjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>sirup.js</h1>
 
-<div id="wrapper">
-<h1 id="sirup.js">sirup.js</h1>
 <p>sirup.js is a small library that makes it easy to work with classes in javascript. It is intended to provide some simple building blocks to build simple css transition slideshows. Naming of functions is based on jQuery.</p>
-<h2 id="the-set-of-features-are">the set of features are</h2>
+
+<p>View <a href="http://quinten.github.io/sirup.js/demo-3d.html">a demo with 3d transforms</a>.</p>
+
+<h2>
+<a id="the-set-of-features-are" class="anchor" href="#the-set-of-features-are" aria-hidden="true"><span class="octicon octicon-link"></span></a>the set of features are</h2>
+
 <p><strong>get</strong> : get the set or nodeList of matched elements</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.myClass&#39;</span>).<span class="fu">get</span>()[<span class="dv">0</span>]; <span class="co">// first element with the class &#39;.myClass&#39; in the dom</span></code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.myClass<span class="pl-pds">'</span></span>).get()[<span class="pl-c1">0</span>]; <span class="pl-c">// first element with the class '.myClass' in the dom</span></pre></div>
+
 <p>Note: You can pass an element or a css selector to the sirup function.</p>
+
 <p><strong>each</strong> : loop over elements</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;ul.list li&#39;</span>).<span class="fu">each</span>(<span class="kw">function</span> (index) {
-  <span class="ot">console</span>.<span class="fu">log</span>(index); <span class="co">// 0,1,2,3,...</span>
-  <span class="ot">console</span>.<span class="fu">log</span>(<span class="kw">this</span>); <span class="co">// element</span>
-  <span class="fu">sirup</span>(<span class="kw">this</span>).<span class="fu">addClass</span>(<span class="st">&#39;item&#39;</span>);
-});</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>ul.list li<span class="pl-pds">'</span></span>).each(<span class="pl-st">function</span> (<span class="pl-vpf">index</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(index); <span class="pl-c">// 0,1,2,3,...</span>
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-v">this</span>); <span class="pl-c">// element</span>
+  sirup(<span class="pl-v">this</span>).addClass(<span class="pl-s1"><span class="pl-pds">'</span>item<span class="pl-pds">'</span></span>);
+});</pre></div>
+
 <p><strong>ready</strong> : check if the dom is ready</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>().<span class="fu">ready</span>(<span class="kw">function</span>(){
-  <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;We can access the dom.&#39;</span>);
-});</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup().ready(<span class="pl-st">function</span>(){
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-s1"><span class="pl-pds">'</span>We can access the dom.<span class="pl-pds">'</span></span>);
+});</pre></div>
+
 <p><strong>addClass</strong> : add a css class</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.peanut&#39;</span>).<span class="fu">addClass</span>(<span class="st">&#39;butter&#39;</span>);</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.peanut<span class="pl-pds">'</span></span>).addClass(<span class="pl-s1"><span class="pl-pds">'</span>butter<span class="pl-pds">'</span></span>);</pre></div>
+
 <p><strong>removeClass</strong> : remove a class</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;div&#39;</span>).<span class="fu">removeClass</span>(<span class="st">&#39;peanut&#39;</span>);</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>).removeClass(<span class="pl-s1"><span class="pl-pds">'</span>peanut<span class="pl-pds">'</span></span>);</pre></div>
+
 <p><strong>hasClass</strong> : checks to see if the first element has a class</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.peanut&#39;</span>).<span class="fu">hasClass</span>(<span class="st">&#39;peanut&#39;</span>); <span class="co">// returns true</span></code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.peanut<span class="pl-pds">'</span></span>).hasClass(<span class="pl-s1"><span class="pl-pds">'</span>peanut<span class="pl-pds">'</span></span>); <span class="pl-c">// returns true</span></pre></div>
+
 <p><strong>toggleClass</strong> : toggles a class</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.peanut&#39;</span>).<span class="fu">toggleClass</span>(<span class="st">&#39;butter&#39;</span>);</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.peanut<span class="pl-pds">'</span></span>).toggleClass(<span class="pl-s1"><span class="pl-pds">'</span>butter<span class="pl-pds">'</span></span>);</pre></div>
+
 <p><strong>click</strong> : bind a simple click</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.peanut&#39;</span>).<span class="fu">click</span>(<span class="kw">function</span> (e) {
-  <span class="ot">console</span>.<span class="fu">log</span>(e); <span class="co">// event object</span>
-  <span class="ot">console</span>.<span class="fu">log</span>(<span class="kw">this</span>); <span class="co">// element that fired the event</span>
-});</code></pre>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.peanut<span class="pl-pds">'</span></span>).<span class="pl-s3">click</span>(<span class="pl-st">function</span> (<span class="pl-vpf">e</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(e); <span class="pl-c">// event object</span>
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-v">this</span>); <span class="pl-c">// element that fired the event</span>
+});</pre></div>
+
 <p>All sirup functions can be chained, except for get and hasClass.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="fu">sirup</span>(<span class="st">&#39;.peanut&#39;</span>).<span class="fu">addClass</span>(<span class="st">&#39;butter&#39;</span>).<span class="fu">removeClass</span>(<span class="st">&#39;peanut&#39;</span>);</code></pre>
-<h3 id="inspiration">Inspiration</h3>
+
+<div class="highlight highlight-javascript"><pre>sirup(<span class="pl-s1"><span class="pl-pds">'</span>.peanut<span class="pl-pds">'</span></span>).addClass(<span class="pl-s1"><span class="pl-pds">'</span>butter<span class="pl-pds">'</span></span>).removeClass(<span class="pl-s1"><span class="pl-pds">'</span>peanut<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>
+<a id="inspiration" class="anchor" href="#inspiration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inspiration</h3>
+
 <p>sirup.js is a small library that only implements those features of jQuery you need to build simple css transition slideshows.</p>
+
 <p>The idea for this mini framework is inspired by the article <a href="http://ponyfoo.com/articles/getting-over-jquery">Getting over jQuery</a> by <a href="https://github.com/bevacqua">Nicolas Bevacqua</a></p>
+
 <p>In production environments it is off course adviced to use the real jQuery.</p>
+      </section>
+    </div>
 
-</div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sirup.js maintained by <a href="https://github.com/Quinten">Quinten</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-</body>
+    
+
+  </body>
 </html>
