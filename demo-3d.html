@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>sirup.js 3D demo</title>
+
+<style type="text/css">
+
+/* structure */
+
+body {
+  margin: 0;
+  background-color: #ddd;
+}
+
+#wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.viewport {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin: 60px 0 60px 0;
+}
+
+.viewport img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  border: 0;
+  margin: 0;
+}
+
+.thumbs img {
+  width: 80px;
+  height: 60px;
+  float: left;
+  border: 0;
+  cursor: pointer;
+  margin: 0 0 0 60px;
+}
+
+.thumbs img:first-child {
+  margin: 0;
+}
+
+/* animation */
+
+.viewport img {
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition: -moz-transform 0.5s ease-out;
+  -ms-transition: -ms-transform 0.5s ease-out;
+  -o-transition: -o-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+
+  -webkit-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -moz-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -ms-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -o-transform: perspective( 1000px ) rotateY( -180deg ); 
+  transform: perspective( 1000px ) rotateY( -180deg );
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* animate in */
+.viewport img.active {
+  opacity: 1;
+  -webkit-transform: perspective( 1000px ) rotateY( 0 ); 
+  -moz-transform: perspective( 1000px ) rotateY( 0 ); 
+  -ms-transform: perspective( 1000px ) rotateY( 0 ); 
+  -o-transform: perspective( 1000px ) rotateY( 0 ); 
+  transform: perspective( 1000px ) rotateY( 0 ); 
+}
+
+/* animate out */
+.viewport img.out {
+  opacity: 1;
+  -webkit-transform: perspective( 1000px ) rotateY( 180deg );
+  -moz-transform: perspective( 1000px ) rotateY( 180deg );
+  -ms-transform: perspective( 1000px ) rotateY( 180deg );
+  -o-transform: perspective( 1000px ) rotateY( 180deg );
+  transform: perspective( 1000px ) rotateY( 180deg );
+}
+
+</style>
+
+
+<script src="sirup.js"></script>
+
+<script type="text/javascript">
+
+  sirup().ready(function () {
+    sirup('.thumbs img').each(function (index) {
+      var targetIndex = index + 1;
+      sirup(this).click(function(e){
+        if (!(sirup('.viewport img:nth-child(' + targetIndex + ')').hasClass('active'))) {
+          sirup('.viewport img.active').addClass('out').removeClass('active');
+          sirup('.viewport img:nth-child(' + targetIndex + ')').addClass('active');
+          setTimeout(function(){sirup('.viewport img.out').removeClass('out');},500);
+        }
+      });
+    });
+
+    sirup('.viewport img:nth-child(1)').addClass('active');
+  });
+
+</script>
+
+</head>
+<body>
+
+<div id="wrapper">
+  <div class="viewport">
+    <img src="http://placehold.it/640x480/99cc33/ffffff.png&text=1" />
+    <img src="http://placehold.it/640x480/660099/ffffff.png&text=2" />
+    <img src="http://placehold.it/640x480/336699/ffffff.png&text=3" />
+    <img src="http://placehold.it/640x480/33cccc/ffffff.png&text=4" />
+    <img src="http://placehold.it/640x480/660033/ffffff.png&text=5" />
+  </div>
+  <div class="thumbs">
+    <img src="http://placehold.it/640x480/99cc33/ffffff.png&text=1" />
+    <img src="http://placehold.it/640x480/660099/ffffff.png&text=2" />
+    <img src="http://placehold.it/640x480/336699/ffffff.png&text=3" />
+    <img src="http://placehold.it/640x480/33cccc/ffffff.png&text=4" />
+    <img src="http://placehold.it/640x480/660033/ffffff.png&text=5" />
+  </div>
+
+</div>
+
+</body>
+</html>
