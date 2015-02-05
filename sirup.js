@@ -1,21 +1,25 @@
-var sirup = function (expression) {
+var sirup = function (expr) {
+
+this.nodes = null;
 
 this.get = function () {
-  if (typeof expression === 'string') {
-    return document.querySelectorAll(expression);
-  } else if (expression instanceof Node){
-    return [expression];
-  } else {
-    return this;
+  var n = [];
+  if (this.nodes !== null) {
+    n = this.nodes;
+  } else if (typeof expr === 'string') {
+    n = document.querySelectorAll(expr);
+  } else if (expr instanceof Node){
+    n = [expr];
   }
+  return this.nodes = n;
 };
 
 this.each = function (func) {
-  var nodes = this.get();
-  for (var n = 0; n < nodes.length; n++) {
-    nodes[n].tempFunc = func;
-    nodes[n].tempFunc(n);
-    delete nodes[n].tempFunc;
+  var n = this.get();
+  for (var i = 0; i < n.length; i++) {
+    n[i].tempf = func;
+    n[i].tempf(i);
+    delete n[i].tempf;
   }
   return this;
 };
@@ -24,13 +28,13 @@ this.ready = function (func) {
   if(document.readyState === 'complete'){
     func();
   } else {
-    var oldonload = window.onload;
+    var oldf = window.onload;
     if (typeof window.onload != 'function') {
       window.onload = func;
     } else {
       window.onload = function() {
-        if (oldonload) {
-          oldonload();
+        if (oldf) {
+          oldf();
         }
         func();
       }
@@ -39,60 +43,64 @@ this.ready = function (func) {
   return this;
 };
 
-this.addClass = function(className) {
-  var nodes = this.get();
+this.getRE = function (str) {
+  return new RegExp('(\\s|^)' + str + '(\\s|^)', 'g');
+}
+
+this.addClass = function(str) {
+  var n = this.get();
   if(!!document.body.classList){
-    for (var n = 0; n < nodes.length; n++) {
-      nodes[n].classList.add(className);
+    for (var i = 0; i < n.length; i++) {
+      n[i].classList.add(str);
     }
   } else {
-    for (var n = 0; n < nodes.length; n++) {
-      if (!nodes[n].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'))) {
-        nodes[n].className += ' ' + className;
+    for (var i = 0; i < n.length; i++) {
+      if (!n[i].className.match(this.getRE(str))) {
+        n[i].className += ' ' + str;
       }
     }
   }
   return this;
 };
 
-this.removeClass = function(className) {
-  var nodes = this.get();
+this.removeClass = function(str) {
+  var n = this.get();
   if(!!document.body.classList){
-    for (var n = 0; n < nodes.length; n++) {
-      nodes[n].classList.remove(className);
+    for (var i = 0; i < n.length; i++) {
+      n[i].classList.remove(str);
     }
   } else {
-    for (var n = 0; n < nodes.length; n++) {
-      nodes[n].className = nodes[n].className.replace(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'), '');
+    for (var i = 0; i < n.length; i++) {
+      n[i].className = n[i].className.replace(this.getRE(str), '');
     }
   }
   return this;
 };
 
-this.hasClass = function (className) {
+this.hasClass = function (str) {
   if(!!document.body.classList){
-      return this.get()[0].classList.contains(className);
+      return this.get()[0].classList.contains(str);
   }else{
-      return this.get()[0].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'));
+      return this.get()[0].className.match(this.getRE(str));
   }
 };
 
-this.toggleClass = function (className) {
-  var nodes = this.get();
+this.toggleClass = function (str) {
+  var n = this.get();
   if(!!document.body.classList){
-    for (var n = 0; n < nodes.length; n++) {
-      if (!nodes[n].classList.contains(className)) {
-        nodes[n].classList.add(className);
+    for (var i = 0; i < n.length; i++) {
+      if (!n[i].classList.contains(str)) {
+        n[i].classList.add(str);
       } else {
-        nodes[n].classList.remove(className);
+        n[i].classList.remove(str);
       }
     }
   } else {
-    for (var n = 0; n < nodes.length; n++) {
-      if (!nodes[n].className.match(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'))) {
-        nodes[n].className += ' ' + className;
+    for (var i = 0; i < n.length; i++) {
+      if (!n[i].className.match(this.getRE(str))) {
+        n[i].className += ' ' + className;
       } else {
-        nodes[n].className = nodes[n].className.replace(new RegExp('(\\s|^)' + className + '(\\s|^)', 'g'), '');
+        n[i].className = n[i].className.replace(this.getRE(str), '');
       }
     }
   }
@@ -100,17 +108,17 @@ this.toggleClass = function (className) {
 };
 
 this.click = function (func) {
-  var nodes = this.get();
-  for (var n = 0; n < nodes.length; n++) {
-    nodes[n].addEventListener('click', func);
+  var n = this.get();
+  for (var i = 0; i < n.length; i++) {
+    n[i].addEventListener('click', func);
   }
   return this;
 };
 
 if (this instanceof sirup) {
-  return this.sirup;
+  return this;
 } else {
-  return new sirup(expression);
+  return new sirup(expr);
 }
 
 };

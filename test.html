@@ -24,6 +24,7 @@
       					console.log(e);
       					sirup(this).toggleClass('peanut').toggleClass('butter');
       				});
+              sirup('.peanut').removeClass('peanut').addClass('ex-peanut');
 			});
 		</script>
 	</head>
@@ -32,5 +33,6 @@
 	  <div class="bar">bar</div>
 	  <div class="bar">bar 2</div>
 	  <p><a href="javascript:void(0)" id="link">link</a></p>
+    <div class="peanut">peanut</div>
 	</body>
 </html>
