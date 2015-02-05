@@ -52,6 +52,7 @@ body {
 /* animation */
 
 .viewport img {
+  opacity: 0;
   -webkit-transition: -webkit-transform 0.5s ease-out;
   -moz-transition: -moz-transform 0.5s ease-out;
   -ms-transition: -ms-transform 0.5s ease-out;
@@ -73,6 +74,7 @@ body {
 
 /* animate in */
 .viewport img.active {
+  opacity: 1;
   -webkit-transform: perspective( 1000px ) rotateY( 0 ); 
   -moz-transform: perspective( 1000px ) rotateY( 0 ); 
   -ms-transform: perspective( 1000px ) rotateY( 0 ); 
@@ -82,6 +84,7 @@ body {
 
 /* animate out */
 .viewport img.out {
+  opacity: 1;
   -webkit-transform: perspective( 1000px ) rotateY( 180deg );
   -moz-transform: perspective( 1000px ) rotateY( 180deg );
   -ms-transform: perspective( 1000px ) rotateY( 180deg );
