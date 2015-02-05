@@ -52,18 +52,17 @@ body {
 /* animation */
 
 .viewport img {
-  opacity: 0;
   -webkit-transition: -webkit-transform 0.5s ease-out;
   -moz-transition: -moz-transform 0.5s ease-out;
   -ms-transition: -ms-transform 0.5s ease-out;
   -o-transition: -o-transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
 
-  -webkit-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( -180deg ); 
-  -moz-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( -180deg ); 
-  -ms-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( -180deg ); 
-  -o-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( -180deg ); 
-  transform: translate3d(0,0,0) perspective( 1000px ) rotateY( -180deg );
+  -webkit-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -moz-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -ms-transform: perspective( 1000px ) rotateY( -180deg ); 
+  -o-transform: perspective( 1000px ) rotateY( -180deg ); 
+  transform: perspective( 1000px ) rotateY( -180deg );
 
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -74,22 +73,20 @@ body {
 
 /* animate in */
 .viewport img.active {
-  opacity: 1;
-  -webkit-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 0 ); 
-  -moz-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 0 ); 
-  -ms-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 0 ); 
-  -o-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 0 ); 
-  transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 0 ); 
+  -webkit-transform: perspective( 1000px ) rotateY( 0 ); 
+  -moz-transform: perspective( 1000px ) rotateY( 0 ); 
+  -ms-transform: perspective( 1000px ) rotateY( 0 ); 
+  -o-transform: perspective( 1000px ) rotateY( 0 ); 
+  transform: perspective( 1000px ) rotateY( 0 ); 
 }
 
 /* animate out */
 .viewport img.out {
-  opacity: 1;
-  -webkit-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 180deg );
-  -moz-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 180deg );
-  -ms-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 180deg );
-  -o-transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 180deg );
-  transform: translate3d(0,0,0) perspective( 1000px ) rotateY( 180deg );
+  -webkit-transform: perspective( 1000px ) rotateY( 180deg );
+  -moz-transform: perspective( 1000px ) rotateY( 180deg );
+  -ms-transform: perspective( 1000px ) rotateY( 180deg );
+  -o-transform: perspective( 1000px ) rotateY( 180deg );
+  transform: perspective( 1000px ) rotateY( 180deg );
 }
 
 </style>
