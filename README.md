@@ -2,6 +2,8 @@
 
 sirup.js is a small library that makes it easy to work with classes in javascript. It is intended to provide some simple building blocks to build simple css transition slideshows. Naming of functions is based on jQuery.
 
+View [a demo with 3d transforms](http://quinten.github.io/sirup.js/demo-3d.html).
+
 ## the set of features are
 
 **get** : get the set or nodeList of matched elements
