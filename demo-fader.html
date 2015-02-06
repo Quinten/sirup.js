@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title>sirup.js fading demo</title>
+
+<style type="text/css">
+
+/* structure */
+
+body {
+  margin: 0;
+  background-color: #ddd;
+}
+
+#wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.viewport {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin: 60px 0 60px 0;
+}
+
+.viewport img {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  border: 0;
+  margin: 0;
+}
+
+/* animation */
+
+.viewport img {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-out;
+  -moz-transition: opacity 2s ease-out;
+  -ms-transition: opacity 2s ease-out;
+  -o-transition: opacity 2s ease-out;
+  transition: opacity 2s ease-out;
+}
+
+.viewport img.active {
+  opacity: 1;
+}
+
+</style>
+
+
+<script src="sirup.js"></script>
+
+<script type="text/javascript">
+
+  sirup().ready(function () {
+
+    var nodes = sirup('.viewport img').get();
+    var targetIndex = 0;
+    // show first image
+    sirup(nodes[targetIndex]).addClass('active');
+    // timed loop
+    setInterval(function(){
+      targetIndex++;
+      if (targetIndex >= nodes.length) {
+        targetIndex = 0;
+      }
+      // remove active class from all the images
+      sirup('.viewport img').removeClass('active');
+      // add active class to the next image
+      sirup(nodes[targetIndex]).addClass('active');
+    },5000);
+
+  });
+
+</script>
+
+</head>
+<body>
+
+<div id="wrapper">
+  <div class="viewport">
+    <img src="http://placehold.it/640x480/99cc33/ffffff.png&text=1" />
+    <img src="http://placehold.it/640x480/660099/ffffff.png&text=2" />
+    <img src="http://placehold.it/640x480/336699/ffffff.png&text=3" />
+    <img src="http://placehold.it/640x480/33cccc/ffffff.png&text=4" />
+    <img src="http://placehold.it/640x480/660033/ffffff.png&text=5" />
+  </div>
+</div>
+
+</body>
+</html>
